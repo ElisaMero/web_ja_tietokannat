@@ -1,4 +1,4 @@
-**Kasviblogi**
+**Plant Blog**
 
 Käyttäjä voi luoda tunnukset sivuille ja kirjautua sisään ja ulos
 - Kirjautumisessa on rajoitukset käyttäjänimen ja salasanan pituudessa
