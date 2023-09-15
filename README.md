@@ -1,5 +1,7 @@
 **Plant Blog**
 
+Kasviblogi, jossa voi pitää kirjaa omista kasveista ja kasteluaikatauluista.
+
 Käyttäjä voi luoda tunnukset sivuille ja kirjautua sisään ja ulos
 - Kirjautumisessa on rajoitukset käyttäjänimen ja salasanan pituudessa
 - Tietoturvallinen toteutus
