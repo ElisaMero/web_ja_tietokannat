@@ -1,0 +1,67 @@
+
+body {
+
+    background-color: rgb(234, 252, 234);
+    margin: auto;
+    max-width: 800px;
+
+ }
+
+h1{
+
+    color: rgb(97, 145, 97); 
+    font-size: 60px;
+
+ }
+
+p {
+
+    color: rgb(97, 145, 97); 
+    font-size: 22px;
+}
+
+
+
+ .login_system {
+
+    margin: auto;
+    position: relative;
+    width: 500px;
+    height: 250px;
+    background: rgb(234, 252, 234);
+    border: 2px solid rgb(97, 145, 97);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    
+
+
+ }
+
+
+ .login_system h2{
+
+    text-align: center;
+    color: rgb(97, 145, 97); 
+    font-size: 35px;
+
+ }
+
+
+
+
+ .login_system .user_info {
+
+    position: center;
+    width: 50%;
+    height: 40px;
+
+ }
+
+
+ .user_info input {
+
+    width: 220px;
+    height: 20px;
+ }
+
