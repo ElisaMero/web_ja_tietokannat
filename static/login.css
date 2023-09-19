@@ -20,24 +20,19 @@ p {
     font-size: 22px;
 }
 
-
-
  .login_system {
 
     margin: auto;
     position: relative;
-    width: 500px;
-    height: 250px;
+    width: 510px;
+    height: 255px;
     background: rgb(234, 252, 234);
     border: 2px solid rgb(97, 145, 97);
     border-radius: 2px;
     display: flex;
     justify-content: center;
     
-
-
  }
-
 
  .login_system h2{
 
@@ -47,9 +42,6 @@ p {
 
  }
 
-
-
-
  .login_system .user_info {
 
     position: center;
@@ -58,10 +50,15 @@ p {
 
  }
 
-
  .user_info input {
 
     width: 220px;
     height: 20px;
+ }
+
+ .user_registration p {
+
+   font-size: 20px;
+
  }
 

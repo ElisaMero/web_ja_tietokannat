@@ -1,0 +1,22 @@
+body {
+
+    background-color: rgb(234, 252, 234);
+    margin: auto;
+    max-width: 800px;
+
+ }
+
+
+form {
+
+    margin: auto;
+    position: relative;
+    width: 510px;
+    height: 255px;
+    background: rgb(234, 252, 234);
+    border: 2px solid rgb(97, 145, 97);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+
+}
