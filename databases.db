@@ -1,7 +1,0 @@
-CREATE TABLE users (
-
-    id SERIAL PRIMAL KEY,
-    username TEXT,
-    password TEXT
-
-);

@@ -9,5 +9,16 @@ h1{
 
     color: rgb(97, 145, 97); 
     font-size: 60px;
+    padding-left: 80;
+    padding-top: 30;
+
+ }
+
+ .platform {
+
+    border: 2px solid rgb(97, 145, 97);
+    width: 1750px;
+    height: 700px;
+
 
  }

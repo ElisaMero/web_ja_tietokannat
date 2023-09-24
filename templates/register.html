@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="static/login.css">   
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/register.css">   
 </head>
 
 <body>
 
-<form action="index.html" method="POST">
-    Username:
-    <input type="text" username="username">
-    <br>
-    Password:
-    <input type="text" password="password">
-    <br>
-    <input onclick=InfoToUser() type="submit" value="Submit">
-</form>
-
-<script>
-function InfoToUser() {
-    alert("Registration successful!");
-}
-
-
-</script>
+    <div class="login_system">
+        <form action="/register" method="post">
+            <div class="user_info">
+                <p>Username:</p>
+                <input type="text" name="username">
+                <p>Password:</p>
+                <input type="text" name="password">
+                <input type="submit" value="Submit">
+            </div>  
+        </form>
+    </div>
 
 </body>
 </html>

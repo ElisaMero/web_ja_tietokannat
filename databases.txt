@@ -1,0 +1,18 @@
+# All databases in use:
+
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT,
+    password TEXT
+);
+
+CREATE TABLE plants (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    latinname TEXT,
+    light TEXT,
+    water TEXT, 
+    other TEXT
+);
+

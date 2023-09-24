@@ -17,23 +17,21 @@
 
 
     <div class="login_system">
-        <form action="">
+        <form action="/login" method="post">
             <h2>Login</h2>
             <div class="user_info">
-                <input type="text" placeholder="Username" required>
-            </div>
-            <div class="user_info">
-                <input type="password" placeholder="Password" required>
-            </div>
-
-            <button type="submit" class="btn">Login</button>
+            <p>Username:</p>
+            <input type="text" name="username">
+            <p>Password:</p>
+            <input type="password" name="password">
+            <input type="submit" value="Login">
+        </div>
             
-            <div class="user_registration">
-                <p>Create an account:
-                <a href="#" class="register-link">Register</a>
-                </p>
-            </div>
-
+        <div class="user_registration">
+            <p>Create an account:
+            <a href="/register">Register</a>
+            </p>
+        </div>
 
 
 
