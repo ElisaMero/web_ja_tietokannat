@@ -59,3 +59,4 @@ def add_plant():
         if registerpy.add_plant(name, latinname, light, water, other):
             count = registerpy.count_plants()
             return render_template("user.html", count=count)
+
