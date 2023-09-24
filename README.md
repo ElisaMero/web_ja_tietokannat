@@ -17,7 +17,7 @@ Ulkopuoliset käyttäjät voivat tarkastella muiden käyttäjien kasvisivuja, mu
 
 ***Sovelluksen tämänhetkinen tilanne (Välipalautus 2):***
 
-Käyttäjä voi luoda omat tunnukset sivustolle ja kirjautua sisään.
+Käyttäjä voi luoda omat tunnukset sivustolle ja kirjautua sisään ja ulos.
 
 Käyttäjä voi kirjautuneena lisätä kasvin täyttämällä kyselyn kohdasta "Add".
 
