@@ -9,18 +9,18 @@
 <body>
 
     <h1>Plant Blog &#127793;</h1>
-    {% if session.user %}
-    <h3>Welcome {{session.user.username}}!</h3>
-    {% endif %}
+    
+    <h3>Welcome {{ name }}!</h3>
+    
     <a href="/logout">Log out</a>
 
 
     <div class="platform">
-        <p>List here</p>
-        <br>
         <a href="/new_plant">Add</a>
         <br>
         <p>You have {{ count }} plants</p>
+        <br>
+        <p>put list here of plants from sql and print by plantname</p>
 
 
     </div>

@@ -52,3 +52,10 @@ def count_plants():
         return 0
     else:
         return count
+    
+def show_user():
+    query = text("SELECT username FROM users WHERE id = :id")
+    result = db.session.execute(query, {"id":session["user_id"]})
+    name = result.fetchone()
+    name = name[0]
+    return name

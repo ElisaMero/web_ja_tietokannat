@@ -1,6 +1,8 @@
 body {
 
     background-color: rgb(234, 252, 234);
+    color: rgb(97, 145, 97);
+    font-size: 20px;
 
 
  }
@@ -14,11 +16,21 @@ h1{
 
  }
 
+ h3{
+
+   color: rgb(97, 145, 97);
+   font-size: 25px;
+
+ }
+
  .platform {
 
     border: 2px solid rgb(97, 145, 97);
     width: 1750px;
     height: 700px;
+    color: rgb(97, 145, 97);
+    font-size: 20px;
 
 
  }
+

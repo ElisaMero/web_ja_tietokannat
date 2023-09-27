@@ -32,7 +32,8 @@ def login():
         password = request.form["password"]
         if registerpy.login(username, password):
             count = registerpy.count_plants()
-            return render_template("user.html", count=count)
+            name = registerpy.show_user()
+            return render_template("user.html", count=count, name=name)
         else:
             return render_template("index.html")
 
@@ -58,5 +59,6 @@ def add_plant():
         other = request.form["other"]
         if registerpy.add_plant(name, latinname, light, water, other):
             count = registerpy.count_plants()
-            return render_template("user.html", count=count)
+            name = registerpy.show_user()
+            return render_template("user.html", count=count, name=name)
 
