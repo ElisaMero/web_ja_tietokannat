@@ -9,7 +9,9 @@
 <body>
 
     <h1>Plant Blog &#127793;</h1>
-    <h3>Welcome (insert user)!</h3>  
+    {% if session.user %}
+    <h3>Welcome {{session.user.username}}!</h3>
+    {% endif %}
     <a href="/logout">Log out</a>
 
 

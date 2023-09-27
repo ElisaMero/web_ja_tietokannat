@@ -36,16 +36,16 @@ def logout():
 
 def add_plant(name, latinname, light, water, other):
     try:
-        query = text("INSERT INTO plants (name, latinname, light, water, other) VALUES (:name, :latinname, :light, :water, :other)")
-        db.session.execute(query, {"name":name, "latinname":latinname, "light":light, "water":water, "other":other})
+        query = text("INSERT INTO plant (name, latinname, light, water, other, user_id) VALUES (:name, :latinname, :light, :water, :other, :user_id)")
+        db.session.execute(query, {"name":name, "latinname":latinname, "light":light, "water":water, "other":other, "user_id":session["user_id"]})
         db.session.commit()
     except:
         return False
     return True
 
 def count_plants():
-    query = text("SELECT MAX(id) FROM plants")
-    result = db.session.execute(query, {"id":id})
+    query = text("SELECT count(*) FROM plant WHERE user_id = :id")
+    result = db.session.execute(query, {"id":session["user_id"]})
     count = result.fetchone()
     count = count[0]
     if not count:

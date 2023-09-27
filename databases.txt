@@ -1,4 +1,4 @@
-# All databases in use:
+-- All databases in use:
 
 
 CREATE TABLE users (
@@ -7,12 +7,13 @@ CREATE TABLE users (
     password TEXT
 );
 
-CREATE TABLE plants (
+CREATE TABLE plant (
     id SERIAL PRIMARY KEY,
     name TEXT,
     latinname TEXT,
     light TEXT,
     water TEXT, 
-    other TEXT
+    other TEXT,
+    user_id int references users(id)
 );
 
