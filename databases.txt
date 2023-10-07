@@ -32,9 +32,9 @@ CREATE TABLE note1 (
     name TEXT
 );
 
-CREATE TABLE colors (
+CREATE TABLE emojis (
     id SERIAL PRIMARY KEY,
-    color TEXT
+    number INTEGER
 );
 
 

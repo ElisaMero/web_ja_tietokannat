@@ -33,7 +33,8 @@ def login():
             count = registerpy.count_plants()
             name = registerpy.show_user()
             plant_name = registerpy.plant_headings()
-            return render_template("user.html", count=count, name=name, plant_name=plant_name)
+            emoji = registerpy.choose_emoji()
+            return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
         else:
             return render_template("index.html")
 
@@ -61,25 +62,27 @@ def add_plant():
             count = registerpy.count_plants()
             name = registerpy.show_user()
             plant_name = registerpy.plant_headings()
-            return render_template("user.html", count=count, name=name, plant_name=plant_name)
+            emoji = registerpy.choose_emoji()
+            return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
 
 
 @app.route("/headings", methods=["GET", "POST"])
 def heading_routes():
     name = request.args.get("name")
-    kasvinimi = request.args.get("kasvinimi")
-    comment = registerpy.get_comments(kasvinimi)
-    info = registerpy.plant_info(kasvinimi)
+    theplantname = request.args.get("theplantname")
+    comment = registerpy.get_comments(theplantname)
+    info = registerpy.plant_info(theplantname)
     count = registerpy.count_plants()
     name = registerpy.show_user()
     plant_name = registerpy.plant_headings()
-    return render_template("user.html", info=info, count=count, name=name, plant_name=plant_name, comment=comment)
+    emoji = registerpy.choose_emoji()
+    return render_template("user.html", info=info, count=count, name=name, plant_name=plant_name, comment=comment, emoji=emoji)
 
 
 @app.route("/notes", methods=["GET", "POST"])
 def add_notes():
     comment1 = request.form["plantname"]
-    kasvinimi = request.args.get("kasvinimi")
-    registerpy.add_notes(comment1, kasvinimi)
-    return redirect(f"/headings?kasvinimi={kasvinimi}")
+    theplantname = request.args.get("theplantname")
+    registerpy.add_notes(comment1, theplantname)
+    return redirect(f"/headings?theplantname={theplantname}")
         

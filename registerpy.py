@@ -3,7 +3,7 @@ from database import db
 from flask import session
 from sqlalchemy.sql import text
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from random import randint
 
 def register(username, password):
     hash_value = generate_password_hash(password)
@@ -97,11 +97,9 @@ def add_notes(comment, name):
         return False
     return True
 
-
-
-def get_comments(kasvinimi):
+def get_comments(theplantname):
     comment = text("SELECT comment FROM note1 WHERE user_id =:id AND name =:name")
-    result = db.session.execute(comment, {"id":session["user_id"], "name":kasvinimi})
+    result = db.session.execute(comment, {"id":session["user_id"], "name":theplantname})
     info = result.fetchall()
     if info == []:
         return " "
@@ -109,3 +107,15 @@ def get_comments(kasvinimi):
     for i in info:
         clean_info.append(i[0])
     return clean_info
+
+def choose_emoji():
+    random = randint(1, 14)
+    query = text("SELECT number FROM emojis WHERE id =:id")
+    result = db.session.execute(query, {"id":random})
+    emoji = result.fetchone()
+    if emoji == []:
+        return 127807
+    for i in emoji:
+        emoji_code = i
+    return emoji_code
+

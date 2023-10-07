@@ -19,7 +19,7 @@
     </header>
 
     <div class="start">
-        <p> Click a plant or add one!</p>
+        <b> Click a plant or add one!</b>
     </div>
 
     <div class="platform">
@@ -31,12 +31,15 @@
             <br>
             <ul>
                 {% for i in plant_name %}
-                    <a href="/headings?name={{ i }}&kasvinimi={{ i }}" class="linkstyle">{{ i }}</a>
+                    <a href="/headings?name={{ i }}&theplantname={{ i }}" class="linkstyle">{{ i }}</a>
                 {% endfor %}
                 </ul>
         </div>
 
 
+        <div class="emojis">
+            <p>&#{{ emoji }};</p>
+        </div>
 
         <div class="plant_view">
             {% if info is defined %}
@@ -56,7 +59,7 @@
             <br>
             <br>
             <b>Add more notes:</b>
-            <form action="/notes?kasvinimi={{ i[1] }}" method="post">
+            <form action="/notes?theplantname={{ i[1] }}" method="post">
                 
                 <textarea name="plantname" rows="3" cols="50"></textarea>
                 <input type="submit" value="Submit">

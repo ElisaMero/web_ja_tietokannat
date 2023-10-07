@@ -7,7 +7,7 @@ body {
 
 
 header {
-   
+
    padding-top: 0px;
    height: 140px;
    width: 100%;
@@ -68,6 +68,13 @@ h1{
    display: flex;
  }
 
+ .emojis{
+
+   padding-top: 90px;
+   padding-left: 140px;
+   font-size: 70px;
+ }
+
  .platform .plant_list {
   
   justify-content: left;
@@ -81,7 +88,7 @@ h1{
 
   align-items: center;
   justify-content: center;
-  padding-left: 550px;
+  padding-left: 350px;
  }
 
  
