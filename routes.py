@@ -2,7 +2,6 @@ from app import app
 from flask import redirect, render_template, request
 import registerpy 
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -33,7 +32,8 @@ def login():
         if registerpy.login(username, password):
             count = registerpy.count_plants()
             name = registerpy.show_user()
-            return render_template("user.html", count=count, name=name)
+            plant_name = registerpy.plant_headings()
+            return render_template("user.html", count=count, name=name, plant_name=plant_name)
         else:
             return render_template("index.html")
 
@@ -60,5 +60,26 @@ def add_plant():
         if registerpy.add_plant(name, latinname, light, water, other):
             count = registerpy.count_plants()
             name = registerpy.show_user()
-            return render_template("user.html", count=count, name=name)
+            plant_name = registerpy.plant_headings()
+            return render_template("user.html", count=count, name=name, plant_name=plant_name)
 
+
+@app.route("/headings", methods=["GET", "POST"])
+def heading_routes():
+    name = request.args.get("name")
+    kasvinimi = request.args.get("kasvinimi")
+    comment = registerpy.get_comments(kasvinimi)
+    info = registerpy.plant_info(kasvinimi)
+    count = registerpy.count_plants()
+    name = registerpy.show_user()
+    plant_name = registerpy.plant_headings()
+    return render_template("user.html", info=info, count=count, name=name, plant_name=plant_name, comment=comment)
+
+
+@app.route("/notes", methods=["GET", "POST"])
+def add_notes():
+    comment1 = request.form["plantname"]
+    kasvinimi = request.args.get("kasvinimi")
+    registerpy.add_notes(comment1, kasvinimi)
+    return redirect(f"/headings?kasvinimi={kasvinimi}")
+        

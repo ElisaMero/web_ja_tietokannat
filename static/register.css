@@ -4,11 +4,11 @@ body {
 background-color: rgb(234, 252, 234);
 margin: auto;
 max-width: 800px;
-
 }
 
 
 .login_system {
+
     margin: auto;
     position: relative;
     padding-top: 10px;
@@ -19,7 +19,6 @@ max-width: 800px;
     border-radius: 2px;
     display: flex;
     justify-content: center;
-
 }
 
 .login_system .user_info {
@@ -27,14 +26,12 @@ max-width: 800px;
     padding-left: 140px;
     width: 50%;
     height: 40px;
- 
  }
  
  .login_system .user_info p { 
  
     color: rgb(97, 145, 97);
     font-size: 20px;
- 
  }
  
  

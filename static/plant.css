@@ -2,11 +2,8 @@ body {
 
     background-color: rgb(234, 252, 234);
     margin: auto;
-    max-width: 800px;
-    
-    }
-
-
+    max-width: 800px;    
+}
 
 .plants {
 
@@ -17,7 +14,6 @@ body {
     background: rgb(234, 252, 234);
     display: flex;
     justify-content: center;
-
 }
 
 .plants p {

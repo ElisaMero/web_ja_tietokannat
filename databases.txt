@@ -17,3 +17,24 @@ CREATE TABLE plant (
     user_id int references users(id)
 );
 
+
+CREATE TABLE plantheadings (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    user_id int references users(id)
+);
+
+
+CREATE TABLE note1 (
+    id SERIAL PRIMARY KEY,
+    comment TEXT,
+    user_id int references users(id),
+    name TEXT
+);
+
+CREATE TABLE colors (
+    id SERIAL PRIMARY KEY,
+    color TEXT
+);
+
+

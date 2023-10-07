@@ -42,7 +42,7 @@ $ source venv/bin/activate
 
 $ pip install -r ./requirements.txt
 
-$ psql < schema.sql
+$ psql < databases.txt
 
 Käynnistä ohjelma komennolla: flask run
  

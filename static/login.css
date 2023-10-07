@@ -4,14 +4,12 @@ body {
     background-color: rgb(234, 252, 234);
     margin: auto;
     max-width: 800px;
-
  }
 
-h1{
+h1 {
 
     color: rgb(97, 145, 97); 
     font-size: 60px;
-
  }
 
 p {
@@ -31,7 +29,6 @@ p {
     border-radius: 2px;
     display: flex;
     justify-content: center;
-    
  }
 
  .login_system .user_info {
@@ -39,14 +36,12 @@ p {
    padding-left: 140px;
    width: 50%;
    height: 40px;
-
 }
 
 .login_system .user_info p { 
 
    color: rgb(97, 145, 97);
    font-size: 20px;
-
 }
 
 
@@ -61,7 +56,6 @@ p {
     text-align: center;
     color: rgb(97, 145, 97); 
     font-size: 35px;
-
  }
 
 
@@ -70,6 +64,5 @@ p {
    padding-top: 150px;
    padding-left: 140px;
    font-size: 20px;
-
  }
 

@@ -8,22 +8,64 @@
 </head>
 <body>
 
-    <h1>Plant Blog &#127793;</h1>
-    
-    <h3>Welcome {{ name }}!</h3>
-    
-    <a href="/logout">Log out</a>
+    <header>
 
+        <h1>Plant Blog &#127793;</h1>
+    
+        <h3>Welcome {{ name }}!</h3>
+    
+        <a href="/logout" class="linkstyle">Log out</a>
+
+    </header>
+
+    <div class="start">
+        <p> Click a plant or add one!</p>
+    </div>
 
     <div class="platform">
-        <a href="/new_plant">Add</a>
-        <br>
-        <p>You have {{ count }} plants</p>
-        <br>
-        <p>put list here of plants from sql and print by plantname</p>
+        <div class="plant_list">
+            <br>
+            <a href="/new_plant" class="linkstyle">Add</a>
+            <br>
+            <p>You have {{ count }} plants</p>
+            <br>
+            <ul>
+                {% for i in plant_name %}
+                    <a href="/headings?name={{ i }}&kasvinimi={{ i }}" class="linkstyle">{{ i }}</a>
+                {% endfor %}
+                </ul>
+        </div>
 
 
-    </div>
+
+        <div class="plant_view">
+            {% if info is defined %}
+            {% for i in info %}
+            <p><b>Name:</b> {{ i[1] }} </p>
+            <p><b>Latin name:</b> {{ i[2] }} </p>
+            <p><b>Light:</b> {{ i[3] }} </p>
+            <p><b>Water:</b> {{ i[4] }} </p>
+            <p><b>Good to remember:</b> {{ i[5] }} </p>
+            <ul>
+                {% for j in comment %}
+                <li>
+                    {{ j }}
+                </li>
+                {% endfor %}
+            </ul>
+            <br>
+            <br>
+            <b>Add more notes:</b>
+            <form action="/notes?kasvinimi={{ i[1] }}" method="post">
+                
+                <textarea name="plantname" rows="3" cols="50"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+            {% endfor %}
+            {% endif %}         
+        </div>
+
+    </div>    
 
 </body>
 </html>
