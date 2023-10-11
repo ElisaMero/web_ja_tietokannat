@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="static/user.css">     
+    <link rel="stylesheet" href="static/user.css">
     <title>Plant Blog</title>
 
 </head>
+
 <body>
 
     <header>
 
         <h1>Plant Blog &#127793;</h1>
-    
+
         <h3>Welcome {{ name }}!</h3>
-    
+
         <a href="/logout" class="linkstyle">Log out</a>
 
     </header>
@@ -31,9 +33,9 @@
             <br>
             <ul>
                 {% for i in plant_name %}
-                    <a href="/headings?name={{ i }}&theplantname={{ i }}" class="linkstyle">{{ i }}</a>
+                <a href="/headings?name={{ i }}&theplantname={{ i }}" class="linkstyle">{{ i }}</a>
                 {% endfor %}
-                </ul>
+            </ul>
         </div>
 
 
@@ -60,15 +62,16 @@
             <br>
             <b>Add more notes:</b>
             <form action="/notes?theplantname={{ i[1] }}" method="post">
-                
+
                 <textarea name="plantname" rows="3" cols="50"></textarea>
                 <input type="submit" value="Submit">
             </form>
             {% endfor %}
-            {% endif %}         
+            {% endif %}
         </div>
 
-    </div>    
+    </div>
 
 </body>
+
 </html>

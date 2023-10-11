@@ -1,14 +1,17 @@
 from app import app
 from flask import redirect, render_template, request
-import registerpy 
+import registerpy
+
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 @app.route("/register")
 def new_registeration():
     return render_template("register.html")
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -21,7 +24,8 @@ def register():
             return redirect("/")
         else:
             return render_template("register.html")
-    
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
@@ -39,15 +43,18 @@ def login():
         else:
             return render_template("index.html")
 
+
 @app.route("/logout")
 def logout():
     registerpy.logout()
     return redirect("/")
 
+
 @app.route("/new_plant", methods=["GET", "POST"])
 def new_plant():
     if request.method == "GET":
         return render_template("plant.html")
+
 
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
@@ -86,4 +93,3 @@ def add_notes():
     theplantname = request.args.get("theplantname")
     registerpy.add_notes(comment1, theplantname)
     return redirect(f"/headings?theplantname={theplantname}")
-        

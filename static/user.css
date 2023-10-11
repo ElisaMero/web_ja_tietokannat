@@ -1,94 +1,94 @@
 body {
 
-   background-color: rgb(234, 252, 234);
-   color: rgb(97, 145, 97);
-   font-size: 20px;
- }
+  background-color: rgb(234, 252, 234);
+  color: rgb(97, 145, 97);
+  font-size: 20px;
+}
 
 
 header {
 
-   padding-top: 0px;
-   height: 140px;
-   width: 100%;
-   background: rgb(234, 252, 234);   
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
+  padding-top: 0px;
+  height: 140px;
+  width: 100%;
+  background: rgb(234, 252, 234);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .linkstyle {
 
-   display: inline-block;
-   padding: 10px 20px;
-   border: 1px solid rgb(211, 124, 199); 
-   border-radius: 3px; 
-   background-color: rgb(234, 252, 234); 
-   color: rgb(211, 124, 199);
-   font-size: 22px;  
-   text-decoration: none; 
-   cursor: pointer; 
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid rgb(211, 124, 199);
+  border-radius: 3px;
+  background-color: rgb(234, 252, 234);
+  color: rgb(211, 124, 199);
+  font-size: 22px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .linkstyle:hover {
 
-   background-color: rgb(234, 252, 234);
-   animation: glow 1s infinite alternate; 
- }
- @keyframes glow {
-   0% {
-     box-shadow: 0 0 5px rgb(211, 124, 199);
-   }
-   100% {
-     box-shadow: 0 0 20px rgb(211, 124, 199);
-   }
- }
+  background-color: rgb(234, 252, 234);
+  animation: glow 1s infinite alternate;
+}
 
-h1{
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgb(211, 124, 199);
+  }
 
-   color: rgb(97, 145, 97); 
-   font-size: 60px;
-   padding-right: 230px;
- }
+  100% {
+    box-shadow: 0 0 20px rgb(211, 124, 199);
+  }
+}
 
- h3{
+h1 {
 
-   color: rgb(97, 145, 97);
-   font-size: 30px;
-   padding-left: 80px;
- }
+  color: rgb(97, 145, 97);
+  font-size: 60px;
+  padding-right: 230px;
+}
 
- .platform {
+h3 {
 
-   border: 5px solid rgb(97, 145, 97);
-   width: 1750px;
-   height: 705px;
-   color: rgb(97, 145, 97);
-   font-size: 20px;
-   display: flex;
- }
+  color: rgb(97, 145, 97);
+  font-size: 30px;
+  padding-left: 80px;
+}
 
- .emojis{
+.platform {
 
-   padding-top: 90px;
-   padding-left: 140px;
-   font-size: 70px;
- }
+  border: 5px solid rgb(97, 145, 97);
+  width: 1750px;
+  height: 705px;
+  color: rgb(97, 145, 97);
+  font-size: 20px;
+  display: flex;
+}
 
- .platform .plant_list {
-  
+.emojis {
+
+  padding-top: 90px;
+  padding-left: 140px;
+  font-size: 70px;
+}
+
+.platform .plant_list {
+
   justify-content: left;
   width: 300px;
   height: 700px;
   padding-left: 15px;
   border: 3px solid rgb(97, 145, 97);
- }
+}
 
- .platform .plant_view {
+.platform .plant_view {
 
   align-items: center;
   justify-content: center;
   padding-left: 350px;
- }
-
- 
+}
