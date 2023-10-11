@@ -108,8 +108,20 @@ def get_comments(theplantname):
         clean_info.append(i[0])
     return clean_info
 
+def create_emojis_table():
+    emoji_list = [127800, 127799, 12783, 127796, 127793, 127795, 127807]
+    for i in emoji_list:
+        try:
+            query = text("INSERT INTO emojis (number) VALUES (:number)")
+            db.session.execute(query, {"number":i})
+            db.session.commit()
+        except:
+            return False
+    return True
+        
+
 def choose_emoji():
-    random = randint(1, 14)
+    random = randint(1, 6)
     query = text("SELECT number FROM emojis WHERE id =:id")
     result = db.session.execute(query, {"id":random})
     emoji = result.fetchone()

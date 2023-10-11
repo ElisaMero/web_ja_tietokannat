@@ -30,6 +30,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         if registerpy.login(username, password):
+            registerpy.create_emojis_table()
             count = registerpy.count_plants()
             name = registerpy.show_user()
             plant_name = registerpy.plant_headings()
