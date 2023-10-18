@@ -75,7 +75,12 @@ h3 {
 
   padding-top: 90px;
   padding-left: 140px;
-  font-size: 70px;
+  font-size: 80px;
+}
+
+.emojis .plantcounter {
+
+  font-size: 35px;
 }
 
 .platform .plant_list {

@@ -28,9 +28,15 @@
         <div class="plant_list">
             <br>
             <a href="/new_plant" class="linkstyle">Add</a>
-            <br>
-            <p>You have {{ count }} plants</p>
-            <br>
+
+
+            <form action="/search" method="get">
+                <input type="text" name="word">
+                <br>
+                <input type="submit" value="Search">
+            </form>
+
+
             <ul>
                 {% for i in plant_name %}
                 <a href="/headings?name={{ i }}&theplantname={{ i }}" class="linkstyle" style=display:flex;
@@ -41,6 +47,10 @@
 
 
         <div class="emojis">
+            <div class="plantcounter">
+                <p>You have {{ count }} plants</p>
+                <br>
+            </div>
             <p>&#{{ emoji }};</p>
         </div>
 

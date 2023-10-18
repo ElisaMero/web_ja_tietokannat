@@ -154,3 +154,17 @@ def choose_emoji():
     for i in emoji:
         emoji_code = i
     return emoji_code
+
+
+def search_generator(input):
+    query = text(
+        "SELECT name FROM plantheadings WHERE user_id =:id AND name LIKE :input")
+    result = db.session.execute(
+        query, {"id": session["user_id"], "input": "%"+input+"%"})
+    results = result.fetchall()
+    if results == []:
+        return " "
+    clean_info = []
+    for i in results:
+        clean_info.append(i[0])
+    return clean_info

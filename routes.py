@@ -93,3 +93,13 @@ def add_notes():
     theplantname = request.args.get("theplantname")
     registerpy.add_notes(comment1, theplantname)
     return redirect(f"/headings?theplantname={theplantname}")
+
+
+@app.route("/search", methods=["GET"])
+def result():
+    input = request.args.get("word")
+    plant_name = registerpy.search_generator(input)
+    count = registerpy.count_plants()
+    name = registerpy.show_user()
+    emoji = registerpy.choose_emoji()
+    return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
