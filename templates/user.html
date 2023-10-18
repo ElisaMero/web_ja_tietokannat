@@ -33,7 +33,8 @@
             <br>
             <ul>
                 {% for i in plant_name %}
-                <a href="/headings?name={{ i }}&theplantname={{ i }}" class="linkstyle">{{ i }}</a>
+                <a href="/headings?name={{ i }}&theplantname={{ i }}" class="linkstyle" style=display:flex;
+                    flex-direction:column;>{{ i }}</a>
                 {% endfor %}
             </ul>
         </div>
