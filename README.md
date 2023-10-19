@@ -12,7 +12,7 @@ Käyttäjä voi lisätä pääsivullensa kasvin lomakkeen kautta.
 - Kasvin luonnille on lomake, johon voi täytää esimerkiksi latinankielisen nimen, veden ja valon tarpeen sekä lisätä hyödyllistä tietoa. 
 - Lomakkeen täytön jälkeen tiedot tallentuvat kasvin omalle sivulle, johon voi lisätä muistiinpanoja ja lisätietoa.
 - Pääsivun vasempaan laitaan tulee luettelo kaikista lisäämistäsi kasveista ja linkit niihin.
-- Voit hakea tiettyä kasvia nimellä hakukoneesta.
+- Voit hakea tiettyä lisäämääsi kasvia sen nimellä hakukoneesta.
 - Kasvi on mahdollista poistaa.
 - Erilaisista kasveista löytyy sivun ylälaidassa lisätietoa. 
 
