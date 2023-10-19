@@ -11,20 +11,11 @@ Käyttäjä voi luoda tunnukset sivuille ja kirjautua sisään ja ulos
 Käyttäjä voi lisätä pääsivullensa kasvin lomakkeen kautta.
 - Kasvin luonnille on lomake, johon voi täytää esimerkiksi latinankielisen nimen, veden ja valon tarpeen sekä lisätä hyödyllistä tietoa. 
 - Lomakkeen täytön jälkeen tiedot tallentuvat kasvin omalle sivulle, johon voi lisätä muistiinpanoja ja lisätietoa.
-- Pääsivun vasempaan litaan tulee luettelo kaikista lisäämistäsi kasveista ja linkit niihin. 
+- Pääsivun vasempaan laitaan tulee luettelo kaikista lisäämistäsi kasveista ja linkit niihin.
+- Voit hakea tiettyä kasvia nimellä hakukoneesta.
+- Kasvi on mahdollista poistaa.
+- Erilaisista kasveista löytyy sivun ylälaidassa lisätietoa. 
 
-
-***Sovelluksen tämänhetkinen tilanne (Välipalautus 3):***
-
-Käyttäjä voi luoda omat tunnukset sivustolle ja kirjautua sisään ja ulos.
-
-Käyttäjä voi kirjautuneena lisätä kasvin täyttämällä kyselyn kohdasta "Add".
-
-Tietokantaan tallennettujen kasvien lukumäärä näkyy käyttäjälle. 
-
-Kasvin tietoja voi tarkastella klikkaamalla muodostuneita linkkejä.
-
-Kasville voi antaa lisäohjeita kasvin omalla sivulla. 
 
 ***Sovelluksen käynnistysohjeet***
 
