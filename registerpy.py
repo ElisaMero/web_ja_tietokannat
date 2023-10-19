@@ -100,7 +100,7 @@ def plant_headings():
 def plant_info(name):
     visibility = "visible"
     query = text(
-        "SELECT name, latinname, light, water, other FROM plant WHERE user_id =:id AND name =:name AND visibility=:visibility")
+        "SELECT * FROM plant WHERE user_id =:id AND name =:name AND visibility=:visibility")
     result = db.session.execute(
         query, {"id": session["user_id"], "name": name, "visibility": visibility})
     info = result.fetchall()
