@@ -50,7 +50,6 @@ def add_plant(name, latinname, light, water, other):
         if i[0] == name:
             return False
     try:
-        visibility = "visible"
         query = text(
             "INSERT INTO plant (name, latinname, light, water, other, user_id, visibility) VALUES (:name, :latinname, :light, :water, :other, :user_id, :visibility)")
         db.session.execute(query, {"name": name, "latinname": latinname, "light": light,
