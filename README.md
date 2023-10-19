@@ -46,5 +46,9 @@ pip install -r ./requirements.txt
 psql < schema.sql
 ```
 
-Käynnistä ohjelma komennolla: flask run
- 
+```
+flask run
+```
+
+
+Jos käynnistyksessä ilmenee ongelmia, voit testata psql pyörimisen komennolla: start-pg.sh
