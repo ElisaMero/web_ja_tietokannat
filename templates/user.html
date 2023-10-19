@@ -59,7 +59,11 @@
             <p><b>Latin name:</b> {{ i[2] }} </p>
             <p><b>Light:</b> {{ i[3] }} </p>
             <p><b>Water:</b> {{ i[4] }} </p>
-            <p><b>Good to remember:</b> {{ i[5] }} </p>
+            <p style="max-width: 450px; overflow-x: auto;">
+                <b>Good to remember:</b>
+                {{ i[5] }}
+            </p>
+
             <ul>
                 {% for j in comment %}
                 <li>
@@ -72,7 +76,7 @@
             <b>Add more notes:</b>
             <form action="/notes?theplantname={{ i[1] }}" method="post">
 
-                <textarea name="plantname" rows="3" cols="50"></textarea>
+                <textarea style="resize: none;" name="plantname" rows="3" cols="50"></textarea>
                 <input type="submit" value="Submit">
                 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 

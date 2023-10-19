@@ -1,6 +1,6 @@
 from app import app
 import secrets
-from flask import redirect, render_template, request, session, flash
+from flask import redirect, render_template, request, session
 import registerpy
 
 
@@ -42,8 +42,7 @@ def login():
             plant_name = registerpy.plant_headings()
             emoji = registerpy.choose_emoji()
             return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
-        else:
-            return render_template("error.html")
+        return render_template("error.html")
 
 
 @app.route("/logout")

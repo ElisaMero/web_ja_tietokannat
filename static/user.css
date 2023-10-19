@@ -94,9 +94,9 @@ h3 {
 
 .platform .plant_view {
 
-  resize: none;
   align-items: center;
   justify-content: center;
   padding-left: 350px;
   background-color: rgb(234, 252, 234);
+  overflow-y: auto;
 }
