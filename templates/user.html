@@ -9,15 +9,14 @@
 </head>
 
 <body>
-
     <header>
-
         <h1>Plant Blog &#127793;</h1>
 
         <h3>Welcome {{ name }}!</h3>
 
-        <a href="/logout" class="linkstyle">Log out</a>
+        <a href="/direction" class="linkstyle">Plant help</a>
 
+        <a href="/logout" class="linkstyle">Log out</a>
     </header>
 
     <div class="start">
@@ -28,10 +27,9 @@
         <div class="plant_list">
             <br>
             <a href="/new_plant" class="linkstyle">Add</a>
-
-
+            <p> </p>
             <form action="/search" method="get">
-                <input type="text" name="word">
+                <input type="text" name="word" placeholder="Search plants">
                 <br>
                 <input type="submit" value="Search">
             </form>
@@ -76,13 +74,19 @@
 
                 <textarea name="plantname" rows="3" cols="50"></textarea>
                 <input type="submit" value="Submit">
+                <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+                <div class="plant_deletion">
+                    <br>
+                    <b>Delete this plant:</b>
+                    <a href="/delete_plant?name={{ i[1] }}" class="linkstyle">Delete</a>
+                </div>
+
             </form>
             {% endfor %}
             {% endif %}
         </div>
-
     </div>
-
 </body>
 
 </html>

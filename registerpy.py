@@ -1,4 +1,3 @@
-
 from database import db
 from flask import session
 from sqlalchemy.sql import text
@@ -41,24 +40,18 @@ def logout():
 
 
 def add_plant(name, latinname, light, water, other):
+    check_name = text("SELECT name FROM plant WHERE user_id = :id")
+    result = db.session.execute(check_name, {"id": session["user_id"]})
+    name_list = result.fetchall()
+    for i in name_list:
+        if i == name:
+            return False
     try:
+        visibility = "visible"
         query = text(
-            "INSERT INTO plant (name, latinname, light, water, other, user_id) VALUES (:name, :latinname, :light, :water, :other, :user_id)")
+            "INSERT INTO plant (name, latinname, light, water, other, user_id, visibility) VALUES (:name, :latinname, :light, :water, :other, :user_id, :visibility)")
         db.session.execute(query, {"name": name, "latinname": latinname, "light": light,
-                           "water": water, "other": other, "user_id": session["user_id"]})
-        db.session.commit()
-        plant_table2(name)
-    except:
-        return False
-    return True
-
-
-def plant_table2(name):
-    try:
-        query = text(
-            "INSERT INTO plantheadings (name, user_id) VALUES (:name, :user_id)")
-        db.session.execute(
-            query, {"name": name, "user_id": session["user_id"]})
+                           "water": water, "other": other, "user_id": session["user_id"], "visibility": visibility})
         db.session.commit()
     except:
         return False
@@ -66,8 +59,11 @@ def plant_table2(name):
 
 
 def count_plants():
-    query = text("SELECT count(*) FROM plant WHERE user_id = :id")
-    result = db.session.execute(query, {"id": session["user_id"]})
+    visibility = "visible"
+    query = text(
+        "SELECT count(*) FROM plant WHERE user_id = :id AND visibility=:visibility")
+    result = db.session.execute(
+        query, {"id": session["user_id"], "visibility": visibility})
     count = result.fetchone()
     count = count[0]
     if not count:
@@ -84,8 +80,11 @@ def show_user():
 
 
 def plant_headings():
-    query = text("SELECT name FROM plantheadings WHERE user_id=:id")
-    result = db.session.execute(query, {"id": session["user_id"]})
+    visibility = "visible"
+    query = text(
+        "SELECT name FROM plant WHERE user_id=:id AND visibility=:visibility")
+    result = db.session.execute(
+        query, {"id": session["user_id"], "visibility": visibility})
     info = result.fetchall()
     if info == []:
         return " "
@@ -97,9 +96,11 @@ def plant_headings():
 
 
 def plant_info(name):
-    query = text("SELECT * FROM plant WHERE user_id =:id AND name =:name")
+    visibility = "visible"
+    query = text(
+        "SELECT * FROM plant WHERE user_id =:id AND name =:name AND visibility=:visibility")
     result = db.session.execute(
-        query, {"id": session["user_id"], "name": name})
+        query, {"id": session["user_id"], "name": name, "visibility": visibility})
     info = result.fetchall()
     if info == []:
         return " "
@@ -133,7 +134,7 @@ def get_comments(theplantname):
 
 
 def create_emojis_table():
-    emoji_list = [127800, 127799, 12783, 127796, 127793, 127795, 127807]
+    emoji_list = [127800, 127799, 127793, 127795, 127807]
     for i in emoji_list:
         try:
             query = text("INSERT INTO emojis (number) VALUES (:number)")
@@ -145,7 +146,7 @@ def create_emojis_table():
 
 
 def choose_emoji():
-    random = randint(1, 6)
+    random = randint(1, 5)
     query = text("SELECT number FROM emojis WHERE id =:id")
     result = db.session.execute(query, {"id": random})
     emoji = result.fetchone()
@@ -158,7 +159,7 @@ def choose_emoji():
 
 def search_generator(input):
     query = text(
-        "SELECT name FROM plantheadings WHERE user_id =:id AND name LIKE :input")
+        "SELECT name FROM plant WHERE user_id =:id AND name LIKE :input and visibility = 'visible'")
     result = db.session.execute(
         query, {"id": session["user_id"], "input": "%"+input+"%"})
     results = result.fetchall()
@@ -168,3 +169,45 @@ def search_generator(input):
     for i in results:
         clean_info.append(i[0])
     return clean_info
+
+
+def delete_plant(name):
+    try:
+        query = text(
+            "UPDATE plant SET visibility= 'invisible' WHERE name=:name AND user_id = :user_id")
+        db.session.execute(
+            query, {"name": name, "user_id": session["user_id"]})
+        db.session.commit()
+    except:
+        return False
+    return True
+
+
+def create_direction_table():
+    name_list = [("Pothos", "The Pothos-genus is one of the easiest and most common housplants across the world. It is a very forgiving plant, meaning they are thriving with only a little watering and light. Different varietis of Pothos are visually appealing with their different and vibrant colors. They are also very fast-growing, when the conditions are met."),
+                 ("Snake plant", "Snake plants are highly beginner-friendly for neglecting plant parent. They tolrate drought well and only needs watering about once a month, depending on the amount light it gets.")]
+    for i in name_list:
+        try:
+            query = text(
+                "INSERT INTO directions (name, direction) VALUES (:name, :direction)")
+            db.session.execute(query, {"name": i[0], "direction": i[1]})
+            db.session.commit()
+        except:
+            return False
+    return True
+
+
+def show_pothos():
+    query = text(
+        "SELECT name, direction FROM directions WHERE name = 'Pothos'")
+    result = db.session.execute(query)
+    info = result.fetchall()
+    return info
+
+
+def show_snake():
+    query = text(
+        "SELECT name, direction FROM directions WHERE name = 'Snake plant'")
+    result = db.session.execute(query)
+    info = result.fetchall()
+    return info

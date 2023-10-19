@@ -1,5 +1,6 @@
 from app import app
-from flask import redirect, render_template, request
+import secrets
+from flask import redirect, render_template, request, session, flash
 import registerpy
 
 
@@ -22,8 +23,7 @@ def register():
         password = request.form["password"]
         if registerpy.register(username, password):
             return redirect("/")
-        else:
-            return render_template("register.html")
+        return render_template("register.html", same_name=True)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -34,6 +34,8 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         if registerpy.login(username, password):
+            session["username"] = username
+            session["csrf_token"] = secrets.token_hex(16)
             registerpy.create_emojis_table()
             count = registerpy.count_plants()
             name = registerpy.show_user()
@@ -41,7 +43,7 @@ def login():
             emoji = registerpy.choose_emoji()
             return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
         else:
-            return render_template("index.html")
+            return render_template("error.html")
 
 
 @app.route("/logout")
@@ -61,6 +63,8 @@ def add_plant():
     if request.method == "GET":
         return render_template("plant.html")
     if request.method == "POST":
+        if session["csrf_token"] != request.form.get("csrf_token"):
+            return render_template("error.html")
         name = request.form["name"]
         latinname = request.form["latinname"]
         light = request.form["light"]
@@ -72,6 +76,7 @@ def add_plant():
             plant_name = registerpy.plant_headings()
             emoji = registerpy.choose_emoji()
             return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
+        return render_template("plant.html", same_name=True)
 
 
 @app.route("/headings", methods=["GET", "POST"])
@@ -89,6 +94,8 @@ def heading_routes():
 
 @app.route("/notes", methods=["GET", "POST"])
 def add_notes():
+    if session["csrf_token"] != request.form.get("csrf_token"):
+        return render_template("error.html")
     comment1 = request.form["plantname"]
     theplantname = request.args.get("theplantname")
     registerpy.add_notes(comment1, theplantname)
@@ -103,3 +110,44 @@ def result():
     name = registerpy.show_user()
     emoji = registerpy.choose_emoji()
     return render_template("user.html", count=count, name=name, plant_name=plant_name, emoji=emoji)
+
+
+@app.route("/delete_plant")
+def delete_plant():
+    name = request.args.get("name")
+    print(name)
+    registerpy.delete_plant(name)
+    count = registerpy.count_plants()
+    name = registerpy.show_user()
+    emoji = registerpy.choose_emoji()
+    plant_name = registerpy.plant_headings()
+    return render_template("user.html", count=count, name=name, emoji=emoji,
+                           plant_name=plant_name)
+
+
+@app.route("/direction")
+def open_directions():
+    registerpy.create_direction_table()
+    return render_template("directions.html")
+
+
+@app.route("/pothos")
+def show_pothos():
+    info = registerpy.show_pothos()
+    return render_template("directions.html", info=info)
+
+
+@app.route("/snake")
+def show_snake():
+    info = registerpy.show_snake()
+    return render_template("directions.html", info=info)
+
+
+@app.route("/back")
+def go_back():
+    count = registerpy.count_plants()
+    name = registerpy.show_user()
+    emoji = registerpy.choose_emoji()
+    plant_name = registerpy.plant_headings()
+    return render_template("user.html", count=count, name=name, emoji=emoji,
+                           plant_name=plant_name)

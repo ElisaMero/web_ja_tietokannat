@@ -3,25 +3,26 @@
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username TEXT,
+    username TEXT UNIQUE,
     password TEXT
 );
 
 CREATE TABLE plant (
     id SERIAL PRIMARY KEY,
-    name TEXT,
+    name TEXT UNIQUE, 
     latinname TEXT,
     light TEXT,
     water TEXT, 
     other TEXT,
-    user_id int references users(id)
+    user_id int references users(id),
+    visibility TEXT
 );
 
 
-CREATE TABLE plantheadings (
+CREATE TABLE directions (
     id SERIAL PRIMARY KEY,
-    name TEXT,
-    user_id int references users(id)
+    name TEXT UNIQUE,
+    direction TEXT 
 );
 
 

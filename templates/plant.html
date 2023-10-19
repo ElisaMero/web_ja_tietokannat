@@ -10,6 +10,12 @@
 
 <body>
 
+    {% if same_name %}
+    <script>
+        alert("Name is already in use!");
+    </script>
+    {% endif %}
+
     <div class="plants">
 
         <form action="/add_plant" method="post">
@@ -20,15 +26,27 @@
             </p>
 
             <p>Light tolerance:
-                <input type="radio" name="light" value="Bright direct" required> Bright direct
-                <input type="radio" name="light" value="Bright indirect" required> Bright indirect
-                <input type="radio" name="light" value="Low light" required> Low light
+                <input id="ra1" type="radio" name="light" value="Bright direct" required>
+                <label for="ra1">Bright direct</label>
+
+                <input id="ra2" type="radio" name="light" value="Bright indirect" required>
+                <label for="ra2">Bright indirect</label>
+
+                <input id="ra3" type="radio" name="light" value="Low light" required>
+                <label for="ra3">Low light</label>
             </p>
 
             <p>Watering frequenzy:
-                <input type="radio" name="water" value="Often" required> Often
-                <input type="radio" name="water" value="Half-dry soil" required> Half-dry soil
-                <input type="radio" name="water" value="completely dry soil" required> Completely dry soil
+
+                <input id="rb1" type="radio" name="water" value="Often" required>
+                <label for="rb1">Often</label>
+
+                <input id="rb2" type="radio" name="water" value="Half-dry soil" required>
+                <label for="rb2">Half-dry soil</label>
+
+                <input id="rb3" type="radio" name="water" value="completely dry soil" required>
+                <label for="rb3">Completely dry soil</label>
+
             </p>
 
 
@@ -37,6 +55,7 @@
 
             <input type="submit" value="Submit">
 
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         </form>
 
     </div>

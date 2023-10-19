@@ -8,6 +8,12 @@
 
 <body>
 
+    {% if same_name %}
+    <script>
+        alert("Name is already in use!");
+    </script>
+    {% endif %}
+
     <div class="login_system">
         <form action="/register" method="post">
             <div class="user_info">
