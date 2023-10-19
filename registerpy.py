@@ -40,11 +40,14 @@ def logout():
 
 
 def add_plant(name, latinname, light, water, other):
-    check_name = text("SELECT name FROM plant WHERE user_id = :id")
-    result = db.session.execute(check_name, {"id": session["user_id"]})
+    visibility = "visible"
+    check_name = text(
+        "SELECT name FROM plant WHERE user_id = :id AND visibility=:visibility")
+    result = db.session.execute(
+        check_name, {"id": session["user_id"], "visibility": visibility})
     name_list = result.fetchall()
     for i in name_list:
-        if i == name:
+        if i[0] == name:
             return False
     try:
         visibility = "visible"

@@ -9,7 +9,7 @@ CREATE TABLE users (
 
 CREATE TABLE plant (
     id SERIAL PRIMARY KEY,
-    name TEXT UNIQUE, 
+    name TEXT, 
     latinname TEXT,
     light TEXT,
     water TEXT, 
