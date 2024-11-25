@@ -6,5 +6,3 @@ app.secret_key = getenv("SECRET_KEY")
 
 # fmt: off
 import routes
-
-#test33
